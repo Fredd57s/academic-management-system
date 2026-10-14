@@ -1,0 +1,35 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Course {
+  id: Int!
+  name: String!
+  instructor: String!
+  capacity: Int!
+}
+
+type Enrollment {
+  id: Int!
+  student: Student!
+  course: Course!
+}
+
+type Student {
+  id: Int!
+  name: String!
+  major: String!
+  semester: Int!
+}
+
+type Query {
+  getStudents: [Student!]!
+  getCourses: [Course!]!
+  getEnrollments: [Enrollment!]!
+}
+
+type Mutation {
+  createStudent(name: String!, major: String!, semester: Int!): Student!
+  createCourse(name: String!, instructor: String!, capacity: Int!): Course!
+  createEnrollment(studentId: Int!, courseId: Int!): Enrollment!
+}
